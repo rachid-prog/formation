@@ -1,10 +1,11 @@
 const express= require('express');
 const app = express();
 const dotenv= require('dotenv')
+const cors= require('cors')
 
  dotenv.config();
 
- app.use(express.json()).use(express.urlencoded({ extended: true}));
+ app.use(express.json()).use(express.urlencoded({ extended: true})).use(cors())
 
  app.use((req, res, next)=>{
     console.log(req.url, (new Date().toISOString()).replace('T', ' ').replace('Z',''))
